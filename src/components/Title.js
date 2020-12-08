@@ -5,7 +5,6 @@ import { initialState, titleReducer } from '../reducers/titleReducer';
 const Title = () => {
   const [newTitleText, setNewTitleText] = useState();
   const [state, dispatch] = useReducer(titleReducer, initialState);
-  console.log(state);
 
   const handleChanges = e => {
     setNewTitleText(e.target.value);
