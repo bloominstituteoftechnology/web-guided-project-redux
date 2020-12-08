@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from 'react';
 
 import { initialState, titleReducer } from '../reducers/titleReducer';
+import { toggleEditing, updateTitle} from './../actions/titleActions';
 
 const Title = () => {
   const [newTitleText, setNewTitleText] = useState();
@@ -17,7 +18,7 @@ const Title = () => {
           {state.title}{' '}
           <i
             className="far fa-edit"
-            onClick={() => dispatch({ type: 'TOGGLE_EDITING' })}
+            onClick={() => dispatch(toggleEditing())}
           />
         </h1>
       ) : (
@@ -31,7 +32,7 @@ const Title = () => {
           />
           <button
             onClick={() =>
-              dispatch({ type: 'UPDATE_TITLE', payload: newTitleText })
+              dispatch(updateTitle(newTitleText))
             }
           >
             Update title
