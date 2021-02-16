@@ -15,7 +15,7 @@ class DragonList extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <div className="friends-list">
           {this.state.members.map((member, index) => (
             <h4 key={index}>
@@ -31,7 +31,7 @@ class DragonList extends React.Component {
           placeholder="Add new member"
         />
         <button>Add member</button>
-      </React.Fragment>
+      </div>
     );
   }
 }
