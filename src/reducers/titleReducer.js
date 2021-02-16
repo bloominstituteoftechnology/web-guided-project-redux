@@ -11,7 +11,6 @@ export const initialState = {
           title: action.payload,
           editing: false
         };
-      // NEW CASE HERE
       case "TOGGLE_EDITING":
         return {
           ...state,
