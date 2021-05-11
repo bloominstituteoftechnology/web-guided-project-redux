@@ -1,4 +1,5 @@
 import React from 'react';
+import DragonMember from './DragonMember';
 
 class DragonList extends React.Component {
   state = {
@@ -18,10 +19,7 @@ class DragonList extends React.Component {
       <div>
         <div className="friends-list">
           {this.state.members.map((member, index) => (
-            <h4 key={index}>
-              {member.name}
-              {member.dragonStatus && <i className="fas fa-dragon" />}
-            </h4>
+            <DragonMember key={index} member={member}/>
           ))}
         </div>
         <input
