@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from 'react';
 
-import { initialState, titleReducer } from '../reducers/titleReducer';
+import titleReducer, { initialState } from '../reducers/titleReducer';
 import { toggleEditing, updateTitle} from './../actions/titleActions';
 
 import TitleDisplay from './TitleDisplay';
