@@ -22,8 +22,8 @@ const Title = () => {
       <h1>{state.appName}</h1>
       {
         !state.editing ? 
-          <TitleDisplay title={state.title} dispatch={dispatch} handleToggleEditing={handleToggleEditing}/>: 
-          <TitleForm dispatch={dispatch} handleTitleUpdate={handleTitleUpdate}/>
+          <TitleDisplay title={state.title} handleToggleEditing={handleToggleEditing}/>: 
+          <TitleForm handleTitleUpdate={handleTitleUpdate}/>
       }
     </div>
   );
