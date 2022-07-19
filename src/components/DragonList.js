@@ -1,13 +1,15 @@
 import React from 'react';
 import DragonMember from './DragonMember';
+import { connect } from 'react-redux';
+import { addMember } from './../actions/dragonActions';
 
 class DragonList extends React.Component {
   state = {
     newMember: '',
-    members: [
-      { name: 'Jojo Zhang', dragonStatus: true },
-      { name: 'Brandon Harris', dragonStatus: false }
-    ]
+    // members: [
+    //   { name: 'Jojo Zhang', dragonStatus: true },
+    //   { name: 'Brandon Harris', dragonStatus: false }
+    // ]
   };
 
   handleChanges = e => {
@@ -15,17 +17,15 @@ class DragonList extends React.Component {
   };
 
   handleClick = ()=> {
-    this.setState({
-      ...this.state,
-      members: [...this.members, {name: newMember, dragonStatus: true}]
-    })
+      this.props.addMember(this.state.newMember); // addMember includes the dispatch!!
   }
 
   render() {
+    console.log("props in DragonList:", this.props)
     return (
       <div>
         <div className="friends-list">
-          {this.state.members.map((member, index) => (
+          {this.props.members.map((member, index) => (
             <DragonMember key={index} member={member}/>
           ))}
         </div>
@@ -41,4 +41,10 @@ class DragonList extends React.Component {
   }
 }
 
-export default DragonList;
+const mapStateToProps = (stateFromStore) => {
+  console.log("stateFromStore in DragonList:", stateFromStore)
+  return {
+    members: stateFromStore.dragonReducer.members
+  }
+}
+export default connect(mapStateToProps, { addMember })(DragonList);

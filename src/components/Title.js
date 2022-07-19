@@ -9,6 +9,7 @@ import TitleDisplay from './TitleDisplay';
 import TitleForm from './TitleForm';
 
 const Title = (props) => {
+  console.log("props in title:", props)
   // const [state, dispatch] = useReducer(titleReducer, initialState);
 
   const handleToggleEditing = () => {
@@ -33,11 +34,11 @@ const Title = (props) => {
 };
 
 const mapStateToProps = (stateFromStore) => {
-  // console.log(stateFromStore);
+  console.log("statefromStore in Title:", stateFromStore);
   return {
-    title: stateFromStore.title,
-    appName: stateFromStore.appName,
-    editing: stateFromStore.editing
+    title: stateFromStore.titleReducer.title,
+    appName: stateFromStore.titleReducer.appName,
+    editing: stateFromStore.titleReducer.editing
   }
 }
 //mapStateToProps - will be called every time the store state changes. 
